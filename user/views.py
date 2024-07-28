@@ -25,8 +25,4 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = UserSerializer
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
-
-
-    def get_permissions(self):
-        if self.request.user.is_superuser:
             
