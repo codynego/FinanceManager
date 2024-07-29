@@ -6,4 +6,4 @@ class TransactionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Transaction
-        fields = ['id', 'user', 'transaction_type', 'category', 'amount', 'transaction_date']
+        fields = ['id', 'user', 'account', 'transaction_type', 'category', 'amount', 'transaction_date']

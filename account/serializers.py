@@ -6,4 +6,4 @@ class AccountSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SavingsAccount
-        fields = ["user", "balance", "account_type", "currency"]
+        fields = ["id","user", "balance", "account_type", "currency"]
