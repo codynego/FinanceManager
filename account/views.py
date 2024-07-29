@@ -5,7 +5,7 @@ from rest_framework import status
 from .models import SavingsAccount
 from .serializers import AccountSerializer
 from rest_framework.permissions import IsAuthenticated
-from .permissions import GetAccountPermission
+from .permissions import AdminPermission
 from rest_framework.decorators import action
 from rest_framework.views import APIView
 
@@ -15,7 +15,7 @@ from rest_framework.views import APIView
 class AccountView(viewsets.ModelViewSet):
     queryset = SavingsAccount.objects.all()
     serializer_class = AccountSerializer
-    permission_classes = [GetAccountPermission]
+    permission_classes = [AdminPermission]
 
 class UserAccount(APIView):
     def get(self, request):
