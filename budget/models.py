@@ -24,4 +24,4 @@ class Budget(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     category = models.CharField(choices=CATEGORY, max_length=20)
     period = models.CharField(max_length=20, choices=PERIOD_CAT)
-    created_at = models.DateTimeField(auto_created=True)
+    created_at = models.DateTimeField(auto_created=True, auto_now_add=True)
