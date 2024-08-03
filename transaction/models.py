@@ -9,7 +9,7 @@ from django.contrib.contenttypes.models import ContentType
 class Transaction(models.Model):
     TRANS_TYPE = (
         ("INCOME", "INCOME"),
-        ("EXPENSE", "EXPENSES")
+        ("EXPENSE", "EXPENSE")
     )
 
     TRANS_CATEGORY = (
@@ -20,12 +20,12 @@ class Transaction(models.Model):
         ("HOUSING", "HOUSING"),
         ("OTHERS", "OTHERS")
     )
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     account = models.ForeignKey(SavingsAccount, on_delete=models.CASCADE)
-    transaction_date = models.DateTimeField(auto_created=True)
-    transaction_type = models.CharField(choices=TRANS_TYPE, max_length=20)
+    type = models.CharField(choices=TRANS_TYPE, max_length=20)
     category = models.CharField(choices=TRANS_CATEGORY, max_length=20)
     amount = models.DecimalField(max_digits=20, decimal_places=2)
-    description = models.CharField(max_length=20)
+    description = models.CharField(max_length=20, null=True)
+    date = models.DateTimeField(auto_created=True, auto_now_add=True)
     # account_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     # account = GenericForeignKey(SavingsAccount, on_delete=models.CASCADE)
